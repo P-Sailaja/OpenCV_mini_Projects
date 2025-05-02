@@ -1,0 +1,263 @@
+-----------------------------What is image??---------------------------
+When we combine multiple pixels with each other and "collection of all these pixels" is consider as image. In python image is store in an 2d array and the array exists in NumPy.
+
+-------------------------------What is pixel?----------------------------
+In digital imaging, a pixel(or picture element) is the smallest item of information in an image. Pixels are managed in a 2dimensional grid, represented using squares. Each pixel is a sample of an original image, where more samples typically provide more-accurate representations of the original. The intensity of each pixel is variable; in color systems, each pixel has typically three or four components such as red, green, and blue or cyan, magenta, yellow and black.
+
+The word pixel is based on a contraction if pix("pictures") and el("element").
+
+-------------------------Image Processing-------------------------------
+Image Processing is a method to perform some operations on an image, in order to get an enhanced image or to extract some useful information from it.
+
+-----------------------What is Computer Vision?--------------------
+Computer Vision(CV) is a process ( and a branch of computer science) that involves capturing, processing and analysing real-world images and video to allow machines to extract meaningful, contextual information from the physical world.
+1. Computer Graphics: The making of illustrations and vectors.
+2. Physics: Phy in CV take the role of prime components, including optics, 
+            3d, gradients, geometrical view etc. 
+3. Mathematics: Applies to almost each of the CV algos from capturing an 
+                image to processing it.
+4. Sensors: A type of sensor used for CV applications: Depth sensor, forms 
+            a depth map.
+5. Image processing
+----------------------------What is OpenCV?---------------------
+OpenCV(Open Source Computer Vision Library) is the library if programming functions mainly aimed at real-time computer vision. Originally developed by intel.
+                              or
+It is an open source library for the implementation of image processing and computer vision.                       or
+
+OpenCV is a Open source programming library with real-time computer vision capabilities.
+
+** Modules of OpenCV:
+  *Core  : Basic Operations important for providing functionality to other madules.
+  *ImgProc :Image Processing - colour spaces, Geometrical transforms, histograms, image 
+                               filtering.
+  *dnn: Deep Neural Network - API for new layers creation.
+                             Set of built useful layers.
+                             API to construct and modify neural networks from layers.
+                             Functionality for loading serialized networks models.
+  *ml: Machine Learning - Regression tasks
+                          Clustering tasks in images, anomaly detection.
+                          Classification tasks
+  *video: Video analysis including background subtraction, motion estimation and 
+          object-tracking algos.
+  *Highgui: A high level UI module:
+                  create and manipulate windows that can display images.
+                  Add trackbars to the widows, keyboard commands and handle mouse 
+                   events.
+  *features2d: This module is used for: 
+                  2D features framework. This module includes feature 
+                    detectors, descriptors and descriptor matchers.
+  *flann : A high level UI module: 
+                 Fast library for Approximate nearest neighbours(FLANN)- collection of 
+                 algorithms that are highly suited for fast nearest-neighbour searches.             
+  *stiching: Used for implementing a stitching pipeline that performs automatic 
+              panoramic image stitching.
+  *Shape: Used for shape distance and matching, can be used for shape matching, 
+           retrieval or comparison.
+  *Supperres: This module contains a set of classes and methods that can be used for 
+              resolution enhancement.
+  *videostab: This module contains a set of classes and methods for video 
+              stabilization.
+  *Viz:  3D visualizer -  display widgets that provide several methids to interact with 
+               scenes and widgets
+  *imgcodecs: Image codecs - Image file reading and writing.
+  *objdetect : Detection of objects and instances of predefined classes( for example: 
+                  faces, eyes, people)
+  *Calib3D: Used for camera calibration and 3D reconstruction. Covers basic multiple view 
+            geometry algos, stereo correspondence algos, object pose estimation, both single
+             and stereo camera calibration and also 3D reconstruction.
+ 
+**CV Tasks:
+1. Feature Matching
+           The various points of interest in an image are described as features.
+           The descriptor is used to contain info about these keypoints.
+2. Image stitching: 
+           Image stitching is majorly done by using feature matching to get params for matching
+3. 3D image stitching: 
+           Same as panoramic stitching but with a third aspect included.
+4. Egomotion estimation(VO): cam angle.
+5. Medical Images analysis:
+6. HCI and BCI: 
+7. Stereo vision: corresponding view
+8. Stereo vision depth image:
+            A depth map created using a stereo setup.
+9. Image segmentation and Recognition:
+            segmentation= pixel level recognition
+10. Motion Tracking: 
+*It support cross platform integration and it is flexible.
+
+*It support C, C++, Python.
+
+Imread(): This function is used to read the image from location.
+Imshow(): It accept two parameters
+                    1--> Name of Screen
+                    2--> Image it will display the image.
+Imwrite(): It will save the image.
+
+-------------------------------Functions:---------------------------
+* Use cv2.VideoCapture():  to get a video capture object for the camera.
+* Set up an infinite while loop and use the read() method to read the frames using the above created object.
+* Use cv2.imshow(): to show the frames in the video.
+Breaks the loop when the user clicks a specific key.
+
+In a real-time video monitoring system, to ensure that the camera is opened and working properly we have isOpened().
+* Starting camera. Here, In VideoCapture()-O denotes built-in webcam while 1 will denote the use of external webcams.
+
+       Input files                             Output files
+cv2.VideoCapture(), cv2.imread()      cv2.VideoWriter().cv2.imwrite()
+-----------------------------------Shape----------------------------------
+* cv2.line(): Used to draw line on an image.
+syntax: cv2.line(imageObjectName,('start_coordinates'),('end_coordinates'), ('color_in_bgr'),'line_thickness')
+
+* cv2.rectangle(): Used to draw rectangle on an image.
+syntax: cv2.rectangle(imageObjectName,('top_left_vertex_coordinates'),('lowerr_right_vertex_coordinates'),('stroke-color_in_bgr'),'stroke_thickness')
+
+* cv2.circle(): Ised to draw circle on an image.
+syntax: cv2.circle(imageObjectName,('center_coordinates'),('circle_radius'), ('color_in_bgr'),'stroke_thickness')
+
+* cv2.putText(): Used to write text on image.
+syntax: cv2.putText(imageObjectName,'TextContent',('text_starting_point_coordinates'),'fontToBeUsed','font_size',('text_color','text_thickness','line_type')
+
+
+-----------------Add and Blending functions-----------------------
+We know that when we solve any image related problem, we have to take a matrix. The matrix content will vary depending upon the image type - either it would be a binary
+image(0,1), gray scale image(0-255) or RGB image(255 255 255). SO if we want to add of two images then that means very simple we have to add respective two matrices.
+
+In OpenCV library, we have a function cv2.add() to add the images. But for image addition the size of the two images should be same.
+
+Blending of two images
+cv2.addWeighted() function is used for blending of two images.
+
+------Code-------------------------
+img1 = cv2.imread()
+img1 = cv2.resize(img1, (500,700))
+img2 = cv2.imread()
+img2 = cv2.resize(img2, (500,700))
+
+result
+#numpy addition. In this, we get module b/w value.
+result = img2+img1
+
+result1 = cv2.add(img1, img2)
+
+result2 = cv2.addWeighted(img1, 0.7, img2, 0.3,0)
+
+#cv2.imshow("result==",result)
+cv2.imshow("result==", result1)
+cv2.imshow("result ==", result2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+ 
+--------------------Slpit---------------------
+Divides a multi-channel array into several single-channel arrays.
+
+--------------------Merge-----------------------
+Creates one multi-channel array out of several single-channel ones.
+
+
+
+--------------------------THRESHOLD---------------------------
+Threshold is a very popular segmentation technique, used for separating an object considered as a foreground from its background. 
+A thrashold is avlue which has two regions on its either side i.e., below the threshold or above the threshold.
+Syntax: cv2.threshold(source, thresholdValue, maxVal, thresholdingTechnique)
+
+---------Simple Thresholding-------------------------------------
+The basic Thresholding technique is Binary Thresholding. For evry pixel, the same threshold value is applied. If the pixel value is smaller than the threshold, it is set to 0, otherwise, it is set to a maximum values.
+
+The different Simple Thresholding Techniques are:
+* cv2.THRESH_BINARY: If pixel intensity is greater than the set threshold, value set to 255, else set to 0 (black).
+
+* cv2.THRESH_BINARY_INV: inverted or Opposite case of cv2.THRESH_BINARY.
+
+* cv2.THRESH_TRUNC: If pixel intensity value is greater than threshold, it is truncated to the threshold. THe pixel values are set to be the same as the threshold. All other values remain the same.
+
+* cv2.THRESH_TOZERO: Pixel intensity is set to 0, for all the pixels intensity, less than the threshold value.
+
+* cv2.THRESH_TOZERO_INV: Inverted or Opposite case of cv2.THRESH_TOZERO.
+
+-----------Adaptive Thresholding----------------------
+In the previous section, we used a global value as threshold value. But it may not be good in all the conditions where image has different lighting conditions in different areas. In that case, we go for adaptive thresholding. In this, the algorithm calculate the threshold for a small regions of the image. So we get different thresholds for different regions of the same image and it gives us better results for images with varying illumination.
+
+Adaptive Method - It decides how thresholding value is calculated.
+
+* cv2.ADAPTIVE_THRESH_MEAN_C: threshold value is the mean of neighbourhood area.
+
+* cv2.ADAPTIVE_THRESH_GAUSSIAN_C:
+threshold value is the weighted sum of neighbourhood values where weights are a gaussian window.
+
+---------------------------Image Pyramids--------------------
+Image pyramids are one of the most beautiful concepts of image processing. Normally, we work with images with default resolution but many times we need to change the resolution (lower it) or resize the original image in that case image pyramids comes handy.
+
+-----------------------------Contours----------------------------
+Contours are defined as the line joining all the points along the boundary of an image that are having the same intensity. Contours come handy in shape analysis, finding the size of the object of interest and object detection.
+
+OpenCV has findContour() function that helps in extracting the contours from the image. It works best on binary images, so we should first apply thresholding techniques, Sobel edges etc.
+
+
+----------------------------------Region of Interest----------------------
+Taking specific object , space from an object.
+
+--------------------------------Background subtraction-------------------
+From complete image just remover back-ground.
+
+------------------------------Morphological Transformations----------------
+
+* Morphological transformations are some simple operations based on the image
+
+* It is normally performed on binary images.
+* It needs two inputs 1--original image 2--structuring element(kernel).
+* Two basic morphological transformations are 1--Erosion and 2--Dilation.
+---------Erosion-------------------------------------------------------
+It erodes away the boundaries of foreground object
+
+*kernel slides through all the image and all the pixel from the original image consider 1 only if kernel's pixel is 1
+
+-----------Dilution--------------------------------------------------------
+* It is just opposite of erosion.
+ * Here , a pixels element is 1 if at least one pixel under the kernel is 1
+So it inc. the white region in the image or size of foreground object in. Normally, in cases like noise removal, erosion is followed by dilation.
+Because, erosion removes white noises, but it also shrinks our object.
+------1. Opening----------
+Opening is just another name of erosion followed by dilation.
+means first erosion take place then dilation.
+
+---------------------------Canny Edge Detection----------------------------
+5 steps in canny edge detection:
+ 1. Noise Detection 
+          Since edge detection is suspicious to noise in the image, first
+          step is to remove the noise in the image with a GAUSSIAN FILTER. 
+ 2. Gradient Calculation
+         *Smoothened image is then filtered with a Sobel kernel in both X
+          and Y direction to get derivatives GX and Gy.
+         *From this we get Gradient Intensity matrix and Gradient Angles.
+             Edge_GRadien(G) = sqrt(G^2 base x + G^2 base y)
+             Angle(teta) = tan inverse(G base y/ G base x)
+
+ 3. Non- Maximum suppression
+         *The final image should have thin edges. Thus, we must perform 
+          non-maximum suppression to thin out the edges.
+         *Algorithm: The algo goes through all the points on the image and 
+          finds the pixels with the maximum value of gradient in the edge 
+          directions.
+
+ 4. Double Threshold 
+         *For this step we neeed two threshold values, minval and maxVal.
+         *Any edges with intensity gradient more than maxVal are sure to be 
+          edges and those below minVal are non-edges, so discarded.
+         *Those who lie between these two thresholds are classified edges 
+          or non-edges based ontheor connectivity.
+
+5. Edge Tracking by Hysteresis
+         * If they are connected to" sure-edge" pixels, they are considered to be part of edges. Otherwise, they are also discarded.
+
+
+
+
+
+
+
+
+
+
+
+
